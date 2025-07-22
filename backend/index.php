@@ -1,2 +1,2 @@
 <?php
-header("Location: /demoshop/backend/pages/dashboard.php");
+header("Location: /Ex04/backend/pages/dashboard.php");

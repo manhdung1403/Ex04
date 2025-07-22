@@ -4,7 +4,7 @@
       <!-- #################### Menu admin pages #################### -->
       <li class="nav-item sidebar-heading"><span>Admin</span></li>
       <li class="nav-item">
-        <a href="/demoshop/backend/pages/dashboard.php">Dashboard <span class="sr-only">(current)</span></a>
+        <a href="/Ex04/backend/pages/dashboard.php">Dashboard <span class="sr-only">(current)</span></a>
       </li>
       <hr style="border: 1px solid red; width: 80%;" />
       <!-- #################### End Menu admin pages #################### -->
@@ -20,10 +20,10 @@
         </a>
         <ul class="dropdown-menu">
           <li class="dropdown-item">
-            <a href="/demoshop/backend/functions/product/index.php">Product List</a>
+            <a href="/Ex04/backend/functions/product/index.php">Product List</a>
           </li>
           <li class="dropdown-item">
-            <a href="/demoshop/backend/functions/product/create.php">Create</a>
+            <a href="/Ex04/backend/functions/product/create.php">Create</a>
           </li>
         </ul>
       </li>
