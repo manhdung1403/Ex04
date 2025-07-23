@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Xử lý upload ảnh
     if (isset($_FILES['image_url']) && $_FILES['image_url']['error'] === UPLOAD_ERR_OK) {
-        $uploadDir = __DIR__ . '/../../../assets/uploads/';
+        $uploadDir = __DIR__ . '/../../../Ex04/assets/';
         if (!is_dir($uploadDir)) {
             mkdir($uploadDir, 0777, true);
         }
@@ -27,12 +27,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!in_array($fileExt, $allowedExt)) {
             die('Chỉ cho phép upload ảnh (jpg, jpeg, png, gif, webp, avif)');
         }
-        $newFileName = uniqid('img_', true) . '.' . $fileExt;
-        $destPath = $uploadDir . $newFileName;
+        // Loại bỏ ký tự đặc biệt khỏi tên file gốc
+        $safeFileName = preg_replace('/[^A-Za-z0-9_\-\.]/', '_', pathinfo($fileName, PATHINFO_FILENAME));
+        $finalFileName = $safeFileName . '.' . $fileExt;
+        $destPath = $uploadDir . $finalFileName;
+        // Nếu file đã tồn tại thì thêm hậu tố uniqid
+        if (file_exists($destPath)) {
+            $finalFileName = $safeFileName . '_' . uniqid() . '.' . $fileExt;
+            $destPath = $uploadDir . $finalFileName;
+        }
         if (move_uploaded_file($fileTmpPath, $destPath)) {
-            $image_url = 'assets/uploads/' . $newFileName;
+            $image_url = $finalFileName;
         } else {
-            die('Lỗi upload ảnh!');
+            die('Lỗi upload ảnh! Đảm bảo thư mục Ex04/assets tồn tại và có quyền ghi.');
         }
     } else {
         die('Vui lòng chọn ảnh sản phẩm!');
@@ -44,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param('sdiss', $name, $price, $stock_quantity, $category, $image_url);
         if ($stmt->execute()) {
             // Thành công, chuyển hướng về danh sách sản phẩm
-            header('Location: list.php?msg=created');
+            header('Location: index.php?msg=created');
             exit();
         } else {
             die('Lỗi khi thêm sản phẩm: ' . $stmt->error);

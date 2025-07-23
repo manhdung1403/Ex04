@@ -72,7 +72,11 @@
                                 <td><?= $item[2] ?></td>
                                 <td><?= $item[3] ?></td>
                                 <td>
-                                    <img src="/demoshop/assets/<?= $item[4] ?>" alt="" style="width:200px;height:auto;"/>
+                                    <?php if (!empty($item[4]) && file_exists(__DIR__ . '/../../../assets/' . $item[4])): ?>
+                                        <img src="/demoshop/assets/<?= $item[4] ?>" alt="" style="width:200px;height:auto;"/>
+                                    <?php else: ?>
+                                        <img src="/demoshop/assets/default.png" alt="No image" style="width:200px;height:auto;"/>
+                                    <?php endif; ?>
                                 </td>
                                 <td><?= $item[5] ?></td>
                                 <td>

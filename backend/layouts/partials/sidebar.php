@@ -27,7 +27,23 @@
           </li>
         </ul>
       </li>
-
+      <li class="nav-item sidebar-heading">
+        <span>User</span>
+      </li>
+      <!-- Menu product -->
+      <li class="nav-item dropdown">
+        <a href="#" role="button" data-toggle="collapse" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link dropdown-toggle">
+          User
+        </a>
+        <ul class="dropdown-menu">
+          <li class="dropdown-item">
+            <a href="/Ex04/backend/functions/user/index.php">User List</a>
+          </li>
+          <li class="dropdown-item">
+            <a href="/Ex04/backend/functions/user/create.php">Create User</a>
+          </li>
+        </ul>
+      </li>
       <!-- End Menu product -->
       <!-- #################### End Menu product #################### -->
     </ul>

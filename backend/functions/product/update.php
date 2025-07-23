@@ -62,7 +62,7 @@ if (!$product) {
 
                     <div class="mb-3">
                         <label for="image_url" class="form-label">Image</label><br>
-                        <img src="/demoshop/assets/<?= $product['image_url'] ?>" style="max-width: 200px;"><br>
+                        <img src="/Ex04/assets/<?= $product['image_url'] ?>" style="max-width: 200px;"><br>
                         <input type="file" class="form-control" id="image_url" name="image_url">
                         <input type="hidden" name="old_image_url" value="<?= $product['image_url'] ?>">
                     </div>

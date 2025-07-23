@@ -40,7 +40,7 @@
                         <input type="file" class="form-control form-control-sm" id="image_url" name="image_url" required style="max-width: 400px;">
                     </div>
                     <button type="submit" class="btn btn-success btn-sm">Create Product</button>
-                    <a href="list.php" class="btn btn-secondary btn-sm">Cancel</a>
+                    <a href="index.php" class="btn btn-secondary btn-sm">Cancel</a>
                 </form>
             </main>
         </div>
